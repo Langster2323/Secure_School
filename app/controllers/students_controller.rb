@@ -1,15 +1,15 @@
 class StudentsController < ApplicationController
   def index
     render locals: {
-      schools: School.all?
+      student: Student.all?
     }
   end
 
   def show
     binding.pry
-    school: School.find(params[:id])
-    if School.exists?(params[:id])
-      render template: 'school/show.html.erb', locals: { school: School.find(params[:id])}
+    school: Student.find(params[:id])
+    if Student.exists?(params[:id])
+      render template: 'student/show.html.erb', locals: { student: student.find(params[:id])}
     else
       render html: "Not Found", status: 404
     end
@@ -17,24 +17,24 @@ class StudentsController < ApplicationController
 
   def new
     render locals: {
-      school: School.new
+      student: Student.new
     }
   end
 
   def edit
     render locals: {
-      school: School.find(params[:id])
+      student: Student.find(params[:id])
     }
   end
 
   def create
-    school = School.new
-    school.name = params[:school][:name]
+    student = Student.new
+    student.name = params[:student][:name]
     if school.save
-      redirect_to_school_path(user)
+      redirect_to_student_path(student)
     else
       flash[:alert] = "Could not be saved due to errors"
-      render template: 'school/new.html.erb'
+      render template: 'student/new.html.erb'
     end
   end
 
@@ -42,7 +42,7 @@ class StudentsController < ApplicationController
     student = Student.find(params[:id])
     student.name = pramas[:student]
     if student.save
-      redirect_to_school_path(school)
+      redirect_to_school_path(student)
     else
       render template: '/school/new.html.erb', locals: {
         student: student

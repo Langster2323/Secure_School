@@ -22,3 +22,5 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+<!-- After my pushes to my git hub and heroku, I'm jumping to my CRUD actions -->
