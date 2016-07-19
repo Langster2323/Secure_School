@@ -3,6 +3,7 @@ class CreateSchools < ActiveRecord::Migration[5.0]
     create_table :schools do |t|
       t.string :name
 
+      has_many :teachers
       t.timestamps
     end
   end
