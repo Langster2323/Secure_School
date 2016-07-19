@@ -9,12 +9,19 @@
   </head>
 
   <body>
+
     <div>
+      <header>
       <nav>
-        <ul>
+          <h1 class="header-edit"><%= link_to "Campus" %></h1>
+        <ul class="list-edit">
+          <li><%= link_to "School" %></li>
+          <li><%= link_to "Teacher" %></li>
+          <li><%= link_to "Student" %></li>
     <%= yield %>
       </ul>
     </nav>
+  </header>
   </div>
   </body>
 </html>
