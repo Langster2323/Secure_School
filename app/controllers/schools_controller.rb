@@ -57,4 +57,9 @@ class SchoolsController < ApplicationController
       flash[:alert] = "Could not be deleted due to errors"
     end
   end
+
+  private
+  def school_params
+    params.require(:school).permit(:name)
+  end
 end

@@ -24,3 +24,4 @@ Things you may want to cover:
 * ...
 
 <!-- After my pushes to my git hub and heroku, I'm jumping to my CRUD actions -->
+<!-- Finished my CRUD actions and rails db:migrate my files to have my rails app running -->

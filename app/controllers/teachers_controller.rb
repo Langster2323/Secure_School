@@ -24,6 +24,7 @@ class TeachersController < ApplicationController
     else
       render html: "Not Found", status: 404
     end
+  end
 
     def create
       teacher = Teacher.new
@@ -37,5 +38,13 @@ class TeachersController < ApplicationController
         }
       end
     end
-  end
+    def update
+      teacher = Teacher.find(params[:id])
+      teacher.name = params[:teacher][:name]
+    end
+
+    private
+    def teacher_params
+      params.require(:teacher).permit(:name)
+    end
 end
