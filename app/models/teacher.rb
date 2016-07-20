@@ -1,5 +1,5 @@
 class Teacher < ApplicationRecord
-  validates :name, null: false
+  validates :name, presence: true
 
   belongs_to :school
 end
