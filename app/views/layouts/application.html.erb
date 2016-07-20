@@ -17,13 +17,16 @@
           <h1 class="header-edit"><%= link_to "Campus" %></h1>
         </div>
         <ul class="list-edit">
-          <li><%= link_to "School" %></li>
-          <li><%= link_to "Teacher" %></li>
-          <li><%= link_to "Student" %></li>
-    <%= yield %>
-      </ul>
-    </nav>
-  </header>
+          <li><%= link_to "Schools", root_path %></li>
+          <li><%= link_to "Teachers", teachers_path %></li>
+          <li><%= link_to "Students", students_path %></li>
+        </ul>
+      </nav>
+    </header>
   </div>
+    <%= yield %>
+
+
+
   </body>
 </html>

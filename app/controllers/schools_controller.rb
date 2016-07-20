@@ -1,13 +1,13 @@
 class SchoolsController < ApplicationController
   def index
-    render locals: {
-      schools: School.all
+    render template: 'schools/index.html.erb', locals: {
+      school: School.all
     }
   end
 
   def show
     binding.pry
-    school School.find(params[:id])
+      School.find(params[:id])
     if School.exists?(params[:id])
       render template: 'school/show.html.erb', locals: { school: School.find(params[:id])}
     else
@@ -16,7 +16,7 @@ class SchoolsController < ApplicationController
   end
 
   def new
-    render locals: {
+    render template: 'school/new.html.erb', locals: {
       school: School.new
     }
   end

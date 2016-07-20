@@ -1,6 +1,6 @@
 class TeachersController < ApplicationController
   def index
-    render template: 'teacher/index.html.erb', locals: {
+    render template: 'teachers/index.html.erb', locals: {
       teacher: Teacher.all
     }
   end
@@ -20,7 +20,7 @@ class TeachersController < ApplicationController
   def show
     binding.pry
     if Teacher.exists?(params[:id])
-      render template: 'teacher/show.html.erb', locals: { teacher Teacher.find(params[:id])}
+      render template: 'teachers/show.html.erb', locals: { teacher: Teacher.find(params[:id])}
     else
       render html: "Not Found", status: 404
     end
