@@ -1,0 +1,9 @@
+<%= render 'shared/teacher', student: student.teacher %>
+
+<div>
+  <p><%= student.name %></p>
+    <%= link_to student_path(student.teacher, student) do %>
+      <small><%= time_ago_in_words(student.created_at) %> ago</small>
+
+      <% end %>
+  </div>

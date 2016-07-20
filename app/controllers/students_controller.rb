@@ -1,7 +1,7 @@
 class StudentsController < ApplicationController
   def index
     render template: 'students/index.html.erb', locals: {
-      student: Student.all?
+      student: Student.all
     }
   end
 
@@ -30,11 +30,11 @@ class StudentsController < ApplicationController
   def create
     student = Student.new
     student.name = params[:student][:name]
-    if school.save
+    if student.save
       redirect_to_student_path(student)
     else
       flash[:alert] = "Could not be saved due to errors"
-      render template: 'student/new.html.erb'
+      render template: 'students/new.html.erb'
     end
   end
 

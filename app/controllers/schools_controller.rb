@@ -16,7 +16,7 @@ class SchoolsController < ApplicationController
   end
 
   def new
-    render template: 'school/new.html.erb', locals: {
+    render locals: {
       school: School.new
     }
   end
