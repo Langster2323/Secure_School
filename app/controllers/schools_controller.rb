@@ -38,25 +38,25 @@ class SchoolsController < ApplicationController
     end
   end
 
-  def update
-    school = School.find(params[:id])
-    school.name = pramas[:school]
-    if school.save
-      redirect_to_school_path(school)
-    else
-      render template: '/school/new.html.erb', locals: {
-        school: school
-      }
-    end
-  end
-
-  def destroy
-    if school.delete
-      flash[:notice] = "School information deleted"
-    else
-      flash[:alert] = "Could not be deleted due to errors"
-    end
-  end
+  # def update
+  #   school = School.find(params[:id])
+  #   school.name = pramas[:school]
+  #   if school.save
+  #     redirect_to_school_path(school)
+  #   else
+  #     render template: '/school/new.html.erb', locals: {
+  #       school: school
+  #     }
+  #   end
+  # end
+  #
+  # def destroy
+  #   if school.delete
+  #     flash[:notice] = "School information deleted"
+  #   else
+  #     flash[:alert] = "Could not be deleted due to errors"
+  #   end
+  # end
 
   private
   def school_params

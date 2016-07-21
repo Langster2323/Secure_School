@@ -1,11 +1,11 @@
 <h2>New Student</h2>
 
-<%= form_for([school, teacher, student]) do |f| %>
+<%= form_for(:student) do |f| %>
 
 <fieldset>
   <%= f.text_area :name, placeholder: 'Students Name', class: 'form-control' %>
 </fieldset>
 
-<p><%= f.submit :Create %></p>
+<p><%= f.submit :create %></p>
 
 <% end %>
