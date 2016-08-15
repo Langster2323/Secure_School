@@ -1,0 +1,11 @@
+<h2>New Teacher</h2>
+
+<%= form_for(:teacher, :url => {:action => 'create'}) do |f| %>
+
+<fieldset>
+  <%= f.text_area :name, placeholder: 'Teachers Name', class: 'form-control' %>
+</fieldset>
+
+<p><%= f.submit :create %></p>
+
+<% end %>

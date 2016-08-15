@@ -1,6 +1,6 @@
 <h2>New Student</h2>
 
-<%= form_for(:student) do |f| %>
+<%= form_for(:student, :url => {:action => 'create'}) do |f| %>
 
 <fieldset>
   <%= f.text_area :name, placeholder: 'Students Name', class: 'form-control' %>

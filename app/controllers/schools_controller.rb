@@ -1,7 +1,7 @@
 class SchoolsController < ApplicationController
   def index
     render template: 'schools/index.html.erb', locals: {
-      school: School.all
+      schools: School.all
     }
   end
 
