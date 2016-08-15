@@ -26,22 +26,23 @@ class TeachersController < ApplicationController
     end
   end
 
-    # def create
-    #   teacher = Teacher.new
-    #   teacher.name = params[:teacher][:name]
-    #   if teacher.save
-    #     redirect_to_teacher_path(teacher)
-    #   else
-    #     flash[:alert] = "Could not be saved dye ti errors"
-    #     render template: 'teacher.new.html.erb', locals: {
-    #       teacher: teacher
-    #     }
-    #   end
-    # end
-    # def update
-    #   teacher = Teacher.find(params[:id])
-    #   teacher.name = params[:teacher][:name]
-    # end
+    def create
+      teacher = Teacher.new(teacher_params)
+      if teacher.save
+        redirect_to teacher
+      else
+      render :new
+      end
+    end
+    
+    def update
+      teacher = Teacher.find(params[:id])
+      if teacher.update(teacher_params)
+        redirect_to teacher
+      else
+        render :edit
+      end
+    end
 
     private
     def teacher_params

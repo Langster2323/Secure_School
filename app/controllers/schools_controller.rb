@@ -29,34 +29,31 @@ class SchoolsController < ApplicationController
 
   def create
     school = School.new
-    school.name = params[:school][:name]
     if school.save
-      redirect_to_school_path(user)
+      redirect_to school
     else
       flash[:alert] = "Could not be saved due to errors"
-      render template: 'school/new.html.erb'
+      render :new
     end
   end
 
-  # def update
-  #   school = School.find(params[:id])
-  #   school.name = pramas[:school]
-  #   if school.save
-  #     redirect_to_school_path(school)
-  #   else
-  #     render template: '/school/new.html.erb', locals: {
-  #       school: school
-  #     }
-  #   end
-  # end
-  #
-  # def destroy
-  #   if school.delete
-  #     flash[:notice] = "School information deleted"
-  #   else
-  #     flash[:alert] = "Could not be deleted due to errors"
-  #   end
-  # end
+  def update
+    school = School.find(params[:id])
+    if school.updte(school_params)
+      redirect_to school
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    if school.delete
+      flash[:notice] = "School information deleted"
+      redirect_to root_path
+    else
+      flash[:alert] = "Could not be deleted due to errors"
+    end
+  end
 
   private
   def school_params
