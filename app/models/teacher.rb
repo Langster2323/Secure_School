@@ -1,7 +1,6 @@
 class Teacher < ApplicationRecord
-  belongs_to :school
+  validates :name, null: false
 
-  def name_with_school
-    "#{self.name} (#{self.school.name})"
-  end
+  belongs_to :school
+  has_many :students
 end

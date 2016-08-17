@@ -10,20 +10,21 @@
 
   <body>
 
-    <div>
-      <header class="navigation-centered" role="banner">
-      <nav>
-        <div class="header-wrap">
-          <h1 class="header-edit"><%= link_to "Campus" %></h1>
-        </div>
-        <ul class="list-edit">
-          <li><%= link_to "Schools", root_path %></li>
-          <li><%= link_to "Teachers", teachers_path %></li>
-          <li><%= link_to "Students", students_path %></li>
-        </ul>
-      </nav>
+    <header class="navigation" role="banner">
+      <div class="navigation-wrapper">
+        <a href="javascript:void(0)" class="logo">
+          <img src="https://raw.githubusercontent.com/thoughtbot/empties/master/source/images/placeholder.png" alt="Logo Image">
+        </a>
+        <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">Menu</a>
+        <nav role="navigation">
+          <ul id="js-navigation-menu" class="navigation-menu show">
+            <li class="nav-link"><%= link_to "Schools", root_path %></li>
+            <li class="nav-link"><%= link_to "Teachers", teachers_path %></li>
+            <li class="nav-link"><%= link_to "Students", students_path %></li>
+          </ul>
+        </nav>
+      </div>
     </header>
-  </div>
     <%= yield %>
 
 

@@ -1,7 +1,7 @@
 class TeachersController < ApplicationController
   def index
     render template: 'teachers/index.html.erb', locals: {
-      teacher: Teacher.all
+      teachers: Teacher.all
     }
   end
 
@@ -34,7 +34,7 @@ class TeachersController < ApplicationController
       render :new
       end
     end
-    
+
     def update
       teacher = Teacher.find(params[:id])
       if teacher.update(teacher_params)

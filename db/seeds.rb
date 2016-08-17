@@ -8,10 +8,12 @@
 
 5.times do
   School.create!(name: Faker::University.name)
-  5.times do
-    Teacher.create!(school_id: school.id, name: Faker::Superhero.name)
-    5.times do
-      Student.create!(teacher_id: teacher.id, name: Faker::SlackEmoji.people)
-    end
-  end
+end
+
+5.times do
+  Teacher.create!(name: Faker::Superhero.name)
+end
+
+5.times do
+  Student.create!(name: Faker::SlackEmoji.people)
 end

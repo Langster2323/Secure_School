@@ -1,7 +1,7 @@
 class StudentsController < ApplicationController
   def index
-    render locals: {
-      student: Student.all
+    render template: 'students/index.html.erb', locals: {
+      students: Student.all
     }
   end
 
@@ -20,20 +20,20 @@ class StudentsController < ApplicationController
     }
   end
 
+  def create
+    student = Student.new(student_params)
+    student.name = params[:student][:name]
+    if student.save
+      redirect_to student
+    else
+      render :new
+    end
+  end
+
   def edit
     render locals: {
       student: Student.find(params[:id])
     }
-  end
-
-  def create
-    student = Student.new(student_params)
-    if student.save
-      redirect_to student
-    else
-      flash[:alert] = "Could not be saved due to errors"
-      render :new
-    end
   end
 
   def update
@@ -48,6 +48,7 @@ class StudentsController < ApplicationController
   def destroy
     if student.delete
       flash[:notice] = "Student information deleted"
+      redirect_to student
     else
       flash[:alert] = "Could not be deleted due to errors"
     end
