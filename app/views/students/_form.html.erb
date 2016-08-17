@@ -1,0 +1,17 @@
+<h2><%= form_title %></h2>
+
+<% if student.errors.any? %>
+    <% student.errors.full_messages.each do |msg| %>
+      <p> <%= msg %></p>
+    <% end %>
+  <% end %>
+
+  <%= form_for(student) do |f| %>
+    <label for="name">Name</label>
+
+    <%=f.text_area :name, placeholder: Faker::SlackEmoji.people %>
+
+    <p><div>
+      <%= f.submit %>
+    </div>
+  <% end %>

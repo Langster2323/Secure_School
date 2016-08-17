@@ -1,2 +1,8 @@
-<h1>Teachers#show</h1>
-<p>Find me in app/views/teachers/show.html.erb</p>
+<h2><%= link_to teacher.name, teacher %></h2>
+
+<% teacher.students.each do |n| %>
+<%= link_to n.name, student_path(n) %>
+<% end %>
+
+<%= link_to "Edit Teacher", edit_teacher_path(teacher) %>
+<%= link_to "Delete Teacher", teacher_path(teacher), method: :DELETE, confirm: "Are you sure?", disable_with: "Deleting" %>

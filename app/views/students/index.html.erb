@@ -1,6 +1,9 @@
 <h3>Students</h3>
+<% students.each do |student| %>
 
-<ul>
+<div>
   <%= link_to students.name, students_path %>
   <p>(<%= students.count %> Students)</p>
-</ul>
+</div>
+
+<% end %>

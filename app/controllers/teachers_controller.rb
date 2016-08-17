@@ -18,7 +18,6 @@ class TeachersController < ApplicationController
   end
 
   def show
-    binding.pry
     if Teacher.exists?(params[:id])
       render template: 'teachers/show.html.erb', locals: { teacher: Teacher.find(params[:id])}
     else

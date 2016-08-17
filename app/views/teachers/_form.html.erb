@@ -1,0 +1,18 @@
+<% if teacher.errors.any? %>
+  <% teacher.errors.full_messages.each do |msg| %>
+    <p> <%= msg %></p>
+
+    <% end %>
+  <% end %>
+
+<div>
+  <%= form_for(teacher) do |f| %>
+  <div>
+    <label for="name">Name: </label>
+    <%= f.text_area :name, placeholder: Faker::Superhero.name %>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+  <% end %>
+</div>

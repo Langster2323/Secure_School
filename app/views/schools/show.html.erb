@@ -10,5 +10,5 @@
   <%= link_to teacher.students.last.name, student_path(teacher.students.last) %>
 <% end %>
 
-<button><%= link_to "Edit School", edit_school_path(school) %></button>
-<button><%= link_to "Delete School", delete_school_path(school) %></button>
+<%= link_to "Edit School", edit_school_path(school) %>
+<%= link_to "Delete School", school_path(school), method: :DELETE, confirm: "Are you sure?", disable_with: "Deleting" %>

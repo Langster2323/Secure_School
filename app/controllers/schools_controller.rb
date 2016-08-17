@@ -46,11 +46,12 @@ class SchoolsController < ApplicationController
   end
 
   def destroy
-    if school.delete
-      flash[:notice] = "School information deleted"
-      redirect_to root_path
+    if School.exists?(params[:id])
+      School.destroy(params[:id])
+      flash[:notice] = "School deleted."
+      redirect_to schools_url
     else
-      flash[:alert] = "Could not be deleted due to errors"
+      flash[:alert] = "Could not delete school. Due to error."
     end
   end
 

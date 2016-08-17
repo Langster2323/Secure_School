@@ -1,8 +1,15 @@
 <h1>University</h1>
 <% schools.each do |school| %>
-<div>
-  <ul>
-    <li><%= link_to school.name, school %></li>
-  </ul>
-</div>
+<div class="cards">
+  <div class="card">
+    <div class="card-image">
+      <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains.png" alt="">
+    </div>
+    <div class="card-header">
+      Campus
+    </div>
+    <div class="card-copy">
+      <p><%= link_to school.name, school %></p>
+    </div>
+  </div>
 <% end %>

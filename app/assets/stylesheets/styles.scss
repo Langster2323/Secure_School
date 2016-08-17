@@ -107,3 +107,185 @@
     background-size: cover;
   }
 }
+
+.navigation {
+  $large-screen: 50em !default;
+  $medium-screen: 30em !default;
+
+
+// Mobile view
+  .navigation-menu-button {
+    display: block;
+    float: right;
+    margin: 0;
+    padding-top: 0.5em;
+
+    @include media ($medium-screen) {
+      display: none;
+    }
+  }
+
+
+// Nav menu
+  .navigation-wrapper {
+    @include clearfix;
+    position: relative;
+  }
+
+  .logo {
+    float: left;
+
+    @include media ($medium-screen) {
+      float: none;
+      text-align: center;
+      display: block;
+    }
+
+    @include media ($large-screen) {
+      float: left;
+    }
+
+    img {
+      max-height: 2em;
+      padding-right: 1em;
+    }
+  }
+
+  nav {
+    float: none;
+
+    @include media ($medium-screen) {
+      float: left;
+      text-align: center;
+      line-height: 1.5em;
+      padding-top: 0.3em;
+    }
+  }
+
+  ul.navigation-menu {
+    clear: both;
+    display: none;
+    margin: 0 auto;
+    overflow: visible;
+    padding: 0;
+    width: 100%;
+
+    @include media ($medium-screen) {
+      display: block;
+      margin: 0;
+      padding: 0;
+    }
+
+    &.show {
+      display: block;
+    }
+  }
+
+
+// Nav items
+  ul li.nav-link {
+    display: block;
+    text-align: right;
+    width: 100%;
+
+    @include media ($medium-screen) {
+      background: transparent;
+      display: inline;
+      text-decoration: none;
+      width: auto;
+    }
+  }
+
+  li.nav-link a {
+    display: inline-block;
+
+    @include media ($large-screen) {
+      padding-right: 1em;
+    }
+  }
+}
+
+cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.card {
+  $base-border-color: gainsboro !default;
+  $base-border-radius: 3px !default;
+  $base-background-color: white !default;
+  $base-spacing: 1.5em !default;
+  $action-color: #477DCA !default;
+  $dark-gray: #333 !default;
+  $base-font-color: $dark-gray !default;
+  $card-border-color: $base-border-color;
+  $card-border: 1px solid $card-border-color;
+  $card-background: lighten($card-border-color, 10%);
+  $card-header-background: $card-background;
+  $card-margin: 1em;
+  $card-image-hover-opacity: 0.7;
+  $card-image-hover-color: #F8F2B4;
+
+  background-color: $card-background;
+  border: $card-border;
+  border-radius: $base-border-radius;
+  box-shadow: 0 2px 4px darken($base-background-color, 10%);
+  cursor: pointer;
+  flex-basis: 15em;
+  flex-grow: 1;
+  margin: 0 $card-margin $base-spacing $card-margin;
+  position: relative;
+  transition: all 0.2s ease-in-out;
+
+  .card-image {
+    background-color: $card-image-hover-color;
+    height: 150px;
+    max-height: 150px;
+    overflow: hidden;
+
+    img {
+      @include border-top-radius($base-border-radius);
+      opacity: 1;
+      transition: all 0.2s ease-in-out;
+      width: 100%;
+    }
+  }
+
+  .card-header {
+    background-color: $card-header-background;
+    border-bottom: $card-border;
+    border-radius: $base-border-radius $base-border-radius 0 0;
+    font-weight: bold;
+    line-height: 1.5em;
+    padding: ($base-spacing / 3) ($base-spacing / 2);
+    transition: all 0.2s ease-in-out;
+  }
+
+  .card-copy {
+    font-size: 0.9em;
+    line-height: 1.5em;
+    padding: ($base-spacing / 2) ($base-spacing / 2);
+
+    p {
+      margin: 0 0 ($base-spacing / 2);
+    }
+  }
+
+  &:focus,
+  &:hover {
+    cursor: pointer;
+
+    img {
+      opacity: $card-image-hover-opacity;
+    }
+  }
+
+  &:active {
+    background-color: $card-background;
+
+    .card-header {
+      background-color: $card-background;
+    }
+  }
+}

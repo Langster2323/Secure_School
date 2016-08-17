@@ -1,1 +1,11 @@
-<% render 'form', school: school, form_title: "New School" %>
+<h2>New School</h2>
+
+<%= form_for(:school, :url => {:action => 'create'}) do |f| %>
+
+<fieldset>
+  <%= f.text_area :name, placeholder: Faker::University.name %>
+</fieldset>
+
+<p><%= f.submit :create %></p>
+
+<% end %>
