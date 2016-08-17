@@ -1,2 +1,14 @@
-<h1>Schools#show</h1>
-<p>Find me in app/views/schools/show.html.erb</p>
+<h2><%= school.name %></h2>
+<p><%= school.teachers.count %> Teachers </p>
+<p><%= school.students.count %> Students </p>
+<% school.teachers.each do |teacher| %>
+  <h3>Teacher: <%= link_to teacher.name, teacher_path(teacher) %></h3>
+  <p><%= teacher.students.count %> Students</p>
+    <% teacher.students[0..-3].each do |student| %>
+    <%= link_to student.name, student_path(student) %>
+  <% end %>
+  <%= link_to teacher.students.last.name, student_path(teacher.students.last) %>
+<% end %>
+
+<button><%= link_to "Edit School", edit_school_path(school) %></button>
+<button><%= link_to "Delete School", delete_school_path(school) %></button>

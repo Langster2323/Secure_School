@@ -1,4 +1,8 @@
-<h1><%= link_to "University" %></h1>
-<ul>
-  <%= link_to schools.name, schools_path %>(<%= schools.count %> Schools)
-</ul>
+<h1>University</h1>
+<% schools.each do |school| %>
+<div>
+  <ul>
+    <li><%= link_to school.name, school %></li>
+  </ul>
+</div>
+<% end %>

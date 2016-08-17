@@ -6,10 +6,9 @@ class SchoolsController < ApplicationController
   end
 
   def show
-    binding.pry
       School.find(params[:id])
     if School.exists?(params[:id])
-      render template: 'school/show.html.erb', locals: { school: School.find(params[:id])}
+      render template: 'schools/show.html.erb', locals: { school: School.find(params[:id])}
     else
       render html: "Not Found", status: 404
     end

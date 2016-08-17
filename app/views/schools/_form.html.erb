@@ -1,3 +1,18 @@
-<small> School Name: <%= f.text_field :name %> </small>
-<small> School Motto: <%= f.text_field :name %> </small>
-<p><%= f.submit :Create %></p>
+<% if school.errors.any? %>
+  <% school.errors.full_messages.each do |msg| %>
+    <p> <%= msg %></p>
+
+    <% end %>
+  <% end %>
+  
+<div>
+  <%= form_for(school) do |f| %>
+  <div>
+    <label for="name">Name: </label>
+    <%= f.text_area :name, placeholder: Faker::University.name %>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+  <% end %>
+</div>

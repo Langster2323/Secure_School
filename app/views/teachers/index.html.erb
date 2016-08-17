@@ -1,1 +1,9 @@
 <h2>Professors</h2>
+
+<% teachers.each do |teacher| %>
+<div>
+  <ul>
+    <li><%= link_to teacher.name, teacher %></li>
+  </ul>
+</div>
+<% end %>
