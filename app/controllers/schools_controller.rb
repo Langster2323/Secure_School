@@ -38,7 +38,7 @@ class SchoolsController < ApplicationController
 
   def update
     school = School.find(params[:id])
-    if school.updte(school_params)
+    if school.update(school_params)
       redirect_to school
     else
       render :edit
