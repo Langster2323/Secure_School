@@ -6,7 +6,6 @@ class StudentsController < ApplicationController
   end
 
   def show
-      Student.find(params[:id])
     if Student.exists?(params[:id])
       render locals: { student: student.find(params[:id])}
     else

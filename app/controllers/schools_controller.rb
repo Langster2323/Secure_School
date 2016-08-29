@@ -20,20 +20,20 @@ class SchoolsController < ApplicationController
     }
   end
 
-  def edit
-    render locals: {
-      school: School.find(params[:id])
-    }
-  end
-
   def create
-    school = School.new
+    school = School.new(school_params)
     if school.save
       redirect_to school
     else
       flash[:alert] = "Could not be saved due to errors"
       render :new
     end
+  end
+
+  def edit
+    render locals: {
+      school: School.find(params[:id])
+    }
   end
 
   def update
