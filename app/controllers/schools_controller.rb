@@ -6,7 +6,6 @@ class SchoolsController < ApplicationController
   end
 
   def show
-      School.find(params[:id])
     if School.exists?(params[:id])
       render template: 'schools/show.html.erb', locals: { school: School.find(params[:id])}
     else

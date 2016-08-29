@@ -5,6 +5,14 @@ class TeachersController < ApplicationController
     }
   end
 
+  def show
+    if Teacher.exists?(params[:id])
+      render locals: { teacher: teacher.find(params[:id])}
+    else
+      render html: "Not Found", status: 404
+    end
+  end
+
   def new
     render locals: {
       teacher: Teacher.new
