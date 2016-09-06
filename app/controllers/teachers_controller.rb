@@ -30,7 +30,7 @@ class TeachersController < ApplicationController
 
     def edit
       render locals: {
-        teacher: Teacher.find(oarans[:id])
+        teacher: Teacher.find(params[:id])
       }
     end
 
